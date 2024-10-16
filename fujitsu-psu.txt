@@ -1,8 +1,69 @@
-Measured on 450W from RX2540M2
+Measured on S13-450P1A; S26113-E575-V70; A3C40172099
+platinum 450W from RX2540M2
+12V/36A
+12VSB/2A
 
 How to turn on PSU
 1. pull down the B21-#PRESENT = connect it to GND B24 or A1-A8, B1-B8
 2. pull down the A21-#POWERON = connect it to GND
+
+| TOP      | function | BOTTOM   | function |
+| -------- | -------- | -------- | -------- |
+| A1 - A8  | GND      | B1 - B8  | GND      |
+| A9 - A16 | 12V rail | B9 - B16 | 12V rail |
+| A17      | ?pullup  | B17      | ?addr1   |
+| A18      | ?pullup  | B18      | ?addr2   |
+| A19      | powergood | B19     | 12VSB    |
+| A20      | NC       | B20      | ?pulldown |
+| A21      | #poweron | B21short | #present |
+| A22      | NC       | B22      | NC       |
+| A23      | ?pulldown low resistance | B23 | ?pulldown |
+| A24      | voltagefeedback | B24short | GND |
+| A25      | ?pulldown | B25     | NC       |
+
+
+FAN 
+always on when AC connected, low speed when turned off
+
+Status led 
+Green blinking - AC connected, 12v rail turned off, 12vStandBy turned onn
+Green - 12v rail turned on
+Orange - failure, 12v rail turned off, 12vStandBy turned onn
+
+B19 - 12v StandBy
+always on 12v
+
+
+B21 present
+B21 is short pad = connects last when inserted into server
+in PSU pullup to 3v3
+on mainboard connected to gnd
+
+A21 power on
+in PSU pullup to 3v3
+
+A19 - power good or PSU status
+0v when turned off
+3v3 when turned on
+0v failure state = orange led
+
+A24 - voltage feedback, 
+in psu is connected to 12V rail using resitor
+on mainboard it is connected to 12v rail, if voltage drops on connector resistance PSU boost voltage to compensate it, too big drop result in failure state = turn off and orange led 
+
+
+PMBus
+psu is passive - no digital signal 
+
+B17,B18 PMBus address?
+in psu is pull up to 3v3
+on mainboard B17 is connected to gnd on PSU1 position, on PSU2 position is not connected
+             B18 is connected to gnd on both PSU1 and PSU2 positions 
+
+
+
+-----------------------------
+poznamky pod ciarou
 
 | TOP | function |
 | --- | --- |
@@ -46,40 +107,3 @@ okrem 12v make zdroje=pullup
 ziaden signal vsetko dc iba A17 sa meni ale tiez dc v radoch minut, mozno zmena na 0 po strachani datovych signalov
 12kohm medzi gnd a pullup nezapne zdroj
 
-FAN 
-always on when AC connected, low speed when turned off
-
-Status led 
-Green blinking - AC connected, 12v rail turned off, 12vStandBy turned onn
-Green - 12v rail turned on
-Orange - failure, 12v rail turned off, 12vStandBy turned onn
-
-B19 - 12v StandBy
-always on 12v
-
-
-B21 present
-B21 is short pad = connects last when inserted into server
-in PSU pullup to 3v3
-on mainboard connected to gnd
-
-A21 power on
-in PSU pullup to 3v3
-
-A19 - power good or PSU status
-0v when turned off
-3v3 when turned on
-0v failure state = orange led
-
-A24 - voltage feedback, 
-in psu is connected to 12V rail using resitor
-on mainboard it is connected to 12v rail, if voltage drops on connector resistance PSU boost voltage to compensate it, too big drop result in failure state = turn off and orange led 
-
-
-PMBus
-psu is passive - no digital signal 
-
-B17,B18 PMBus address?
-in psu is pull up to 3v3
-on mainboard B17 is connected to gnd on PSU1 position, on PSU2 position is not connected
-             B18 is connected to gnd on both PSU1 and PSU2 positions 
