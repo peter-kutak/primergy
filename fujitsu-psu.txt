@@ -24,6 +24,7 @@ How to turn on PSU
 
 
 | BOTTOM | function |
+| ------ | -------- |
 | B1 |  |
 | - | GND |
 | B8 |  |
@@ -75,10 +76,10 @@ in psu is connected to 12V rail using resitor
 on mainboard it is connected to 12v rail, if voltage drops on connector resistance PSU boost voltage to compensate it, too big drop result in failure state = turn off and orange led 
 
 
-SMBus
+PMBus
 psu is passive - no digital signal 
 
-B17,B18 smb address?
-in psu pull up to 3v3
-on mainboard B17 connected to gnd on PSU1 position, on PSU2 position not connected
-             B18 connected to gnd on both PSU1 and PSU2 positions 
+B17,B18 PMBus address?
+in psu is pull up to 3v3
+on mainboard B17 is connected to gnd on PSU1 position, on PSU2 position is not connected
+             B18 is connected to gnd on both PSU1 and PSU2 positions 
