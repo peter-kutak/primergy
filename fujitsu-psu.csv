@@ -1,10 +1,10 @@
-TOP
-
-A1
--   GND
-A8 
-A9
--   0              3k0    1k0
+| TOP |
+|-----|
+|A1 ||
+|-  | GND |
+|A8 | |
+A9 ,
+-  , 0 ,             3k0 ,   1k0
 A16 
 A17 28 30 potom 0  1k5    10
 A18 28 30          1k5    10
@@ -17,7 +17,8 @@ A24 voltagefeedback 0 0            3k5    1k0  12v
 A25 0 0            1k5    40
 
 
-BOTTOM
+| BOTTOM |
+|----|
 B1
 -  GND
 B8
