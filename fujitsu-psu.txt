@@ -11,8 +11,8 @@ How to turn on PSU
 | -------- | -------- | -------- | -------- |
 | A1 - A8  | GND      | B1 - B8  | GND      |
 | A9 - A16 | 12V rail | B9 - B16 | 12V rail |
-| A17      | ?pullup  | B17      | ?addr1   |
-| A18      | ?pullup  | B18      | ?addr2   |
+| A17      | sda pmb  | B17      | ?addr1 pmb |
+| A18      | scl pmb  | B18      | ?addr2 pmb |
 | A19      | powergood | B19     | 12VSB    |
 | A20      | NC       | B20      | ?pulldown |
 | A21      | #poweron | B21short | #present |
@@ -33,6 +33,9 @@ Orange - failure, 12v rail turned off, 12vStandBy turned onn
 B19 - 12v StandBy
 always on 12v
 
+B24short
+GND in PSU
+input on mainboard
 
 B21 present
 B21 is short pad = connects last when inserted into server
@@ -41,6 +44,7 @@ on mainboard connected to gnd
 
 A21 power on
 in PSU pullup to 3v3
+open colector on mainboard (two transistors in series, one common, second one per PSU)
 
 A19 - power good or PSU status
 0v when turned off
@@ -54,6 +58,9 @@ on mainboard it is connected to 12v rail, if voltage drops on connector resistan
 
 PMBus
 psu is passive - no digital signal 
+
+A17 SDA PMBus -> pin51 pic18F65k22
+A18 SCL PMBus -> pin50 pic18F65k22
 
 B17,B18 PMBus address?
 in psu is pull up to 3v3
@@ -73,8 +80,8 @@ poznamky pod ciarou
 | A9 |  |
 | -  | 12V rail |             3k0    1k0
 | A16 |  |
-| A17 |  | 28 30 potom 0  1k5    10
-| A18 |  | 28 30          1k5    10
+| A17 | i2c3 sda | 28 30 potom 0  1k5    10
+| A18 | i2c3 scl | 28 30          1k5    10
 | A19 | powergood | 0 0            4k5    1k5
 | A20 | NC | 0 0            nc     1k5
 | A21 | #poweron | 28 25          5k0    4k0
