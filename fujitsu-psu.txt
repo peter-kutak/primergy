@@ -11,8 +11,8 @@ How to turn on PSU
 | -------- | -------- | -------- | -------- |
 | A1 - A8  | GND      | B1 - B8  | GND      |
 | A9 - A16 | 12V rail | B9 - B16 | 12V rail |
-| A17      | sda pmb  | B17      | ?addr1 pmb |
-| A18      | scl pmb  | B18      | ?addr2 pmb |
+| A17      | SDA PMB  | B17      | addr0 PMB |
+| A18      | SCL PMB  | B18      | addr1 PMB |
 | A19      | powergood | B19     | 12VSB    |
 | A20      | NC       | B20      | ?pulldown |
 | A21      | #poweron | B21short | #present |
@@ -58,6 +58,7 @@ on mainboard it is connected to 12v rail, if voltage drops on connector resistan
 
 PMBus
 psu is passive - no digital signal 
+if psu not powered, SDA/SCL pins are not disconnected and disrupt communication(in contrary of PMBus specification), on Fujitsu mainboard PIC pins are not connected directly.
 
 A17 SDA PMBus -> pin51 pic18F65k22
 A18 SCL PMBus -> pin50 pic18F65k22
@@ -67,6 +68,12 @@ in psu is pull up to 3v3
 on mainboard B17 is connected to gnd on PSU1 position, on PSU2 position is not connected
              B18 is connected to gnd on both PSU1 and PSU2 positions 
 
+    PSU1 PSU2
+B17  L     H    L    H
+B18  L     L    H    H
+i2c 0x50 0x51 0x52 0x53
+    0x58 0x59 0x5A 0x5B
+Do not connect/disconnect B17B18 when psu is powered!
 
 
 -----------------------------
@@ -113,4 +120,5 @@ odporovo nie su spojene ziadne A s B iba B24 je spojene s gnd a velke kontakty s
 okrem 12v make zdroje=pullup 
 ziaden signal vsetko dc iba A17 sa meni ale tiez dc v radoch minut, mozno zmena na 0 po strachani datovych signalov
 12kohm medzi gnd a pullup nezapne zdroj
+addr piny B18B17 nezapajat za chodu, prska-iskri a pada do chyby
 
