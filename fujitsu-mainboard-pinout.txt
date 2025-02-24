@@ -1,3 +1,26 @@
+front panel
+-----------
+2 4 6 8 10 12 14 X
+1 3 5 7  9 11 13 15
+       latch
+1 blue    unk
+2 violet  unk
+3 gray    GND
+4 brown   unk
+5 white   led orange CSS
+6 red     button ID
+7 orange  led blue ID
+8 lgreen  button NMI
+9 pink    button RESET
+10 black  led orange alert
+11 yellow GND
+12 red    led green hdd
+13 brown/w led green stripe power
+14 red/w  led green on power button
+15 black/w button power 
+je tam teplomer = su tam cipesky takze je as digitalny 
+(cipesky su 3 N1 D2 D3; unk piny vedu na cipesky)
+
 COM
 ---
 2x5pin
