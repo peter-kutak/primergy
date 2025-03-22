@@ -86,3 +86,42 @@ odpojeny zlty kablik ostane pull-up a ventilator toci max otacky - toto su fakt 
 pripojeny na zem - nevypne uplne ale stiahne otacky na 1600rpm (minimum)
 
 ked sa v biose vypne pravidelne kontrolovanie ventilatorov tak ich nekontroluje/nevytaca ani pri zapnuti serveru
+
+
+SDcard
+------
+sluzi iba na ukladanie logov z manazmentu
+
+HDD led
+-------
+1234
+
+Intrusion
+---------
+latch
+ 123
+
+TPM
+---
+2468X1214
+135791113
+
+6  3.3v
+14 GND
+
+UFM
+---
+2x5
+
+
+Front panel
+-----------
+
+Front VGA
+---------
+
+LCD
+---
+
+JP7
+JP8
