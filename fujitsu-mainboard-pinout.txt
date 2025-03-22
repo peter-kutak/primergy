@@ -32,6 +32,7 @@ COM
 4
 5 GND
 X no pin key 
+pin number corespond to DB9 RS232
 
 PWR12V
 ---
@@ -58,6 +59,7 @@ internal usb
 1 GND
 2 D
 3 D
+X no pin key 
 5 +5V
 
 FAN
@@ -81,6 +83,6 @@ DC12V 2.00A 60x60x40mm
 Dirty cheap uprava otacok ventilatora
 odpojit zlty kablik od konektora a pripojit ho na zem/cierny
 odpojeny zlty kablik ostane pull-up a ventilator toci max otacky - toto su fakt vysokootackove ventilatory
-pripojeny na zem - nevypne uplne ale stiahne otacky na 1600rpm
+pripojeny na zem - nevypne uplne ale stiahne otacky na 1600rpm (minimum)
 
 ked sa v biose vypne pravidelne kontrolovanie ventilatorov tak ich nekontroluje/nevytaca ani pri zapnuti serveru
